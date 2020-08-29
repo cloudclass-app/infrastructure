@@ -2,7 +2,7 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: cloudclass-ingress
-  namespace: cloudclass-networking
+  namespace: argocd
 spec:
   destination:
     name: ""
