@@ -4,12 +4,12 @@ metadata:
   name: cloudclass-ingress
 spec:
   destination:
-    name: ''
+    name: ""
     namespace: cloudclass-networking
-    server: 'https://kubernetes.default.svc'
+    server: "https://kubernetes.default.svc"
   source:
-    path: ''
-    repoURL: 'https://kubernetes.github.io/ingress-nginx/'
+    path: ""
+    repoURL: "https://kubernetes.github.io/ingress-nginx/"
     targetRevision: 2.13.0
     chart: ingress-nginx
   project: cloudclass

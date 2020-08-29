@@ -2,11 +2,14 @@ apiVersion: networking.k8s.io/v1beta1
 kind: Ingress
 metadata:
   name: cloudclass-services-evaluation-ingress
+  annotations:
+    kubernetes.io/ingress.class: "nginx"
+    cert-manager.io/cluster-issuer: "letsencrypt-prod"
 spec:
   rules:
-  - host: evaluation.jochem.codes
-    http:
-      paths:
-      - backend:
-          serviceName: cloudclass-services-evaluation-application
-          servicePort: 80
+    - host: evaluation.jochem.codes
+      http:
+        paths:
+          - backend:
+              serviceName: cloudclass-services-evaluation-application
+              servicePort: 80
