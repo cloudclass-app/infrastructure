@@ -5,7 +5,7 @@ metadata:
   namespace: argocd
 spec:
   destination:
-    name: ""
+    namespace: cloudclass-networking
     server: "https://kubernetes.default.svc"
   source:
     path: ""
