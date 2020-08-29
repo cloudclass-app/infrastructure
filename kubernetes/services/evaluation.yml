@@ -11,5 +11,36 @@ spec:
       http:
         paths:
           - backend:
-              serviceName: cloudclass-services-evaluation-application
+              serviceName: cloudclass-services-evaluation-service
               servicePort: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: cloudclass-services-evaluation-service
+spec:
+  ports:
+  - port: 80
+    targetPort: 3000
+  selector:
+    app: cloudclass-services-evaluation
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cloudclass-services-evaluation-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: cloudclass-services-evaluation
+  template:
+    metadata:
+      labels:
+        app: cloudclass-services-evaluation
+    spec:
+      containers:
+      - name: hello-kubernetes
+        image: cloudclass/evaluation-service:latest
+        ports:
+        - containerPort: 3000
