@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: ''
+  name: 'cloudclass-cert-manager'
 spec:
   destination:
     name: ''
