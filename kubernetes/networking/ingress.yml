@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: 'cloudclass-networking-cert-manager'
+  name: cloudclass-ingress
 spec:
   destination:
     name: ''
@@ -9,9 +9,9 @@ spec:
     server: 'https://kubernetes.default.svc'
   source:
     path: ''
-    repoURL: 'https://kubernetes-charts.storage.googleapis.com/'
-    targetRevision: v0.6.7
-    chart: cert-manager
+    repoURL: 'https://kubernetes.github.io/ingress-nginx/'
+    targetRevision: 2.13.0
+    chart: ingress-nginx
   project: cloudclass
   syncPolicy:
     automated:
