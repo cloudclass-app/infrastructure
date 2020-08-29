@@ -1,16 +1,16 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: "cloudclass-networking-cert-manager"
+  name: cert-manager
 spec:
   destination:
-    name: ""
+    name: ''
     namespace: cloudclass-networking
-    server: "https://kubernetes.default.svc"
+    server: 'https://kubernetes.default.svc'
   source:
-    path: ""
-    repoURL: "https://kubernetes-charts.storage.googleapis.com/"
-    targetRevision: v0.6.7
+    path: ''
+    repoURL: 'https://charts.jetstack.io'
+    targetRevision: v1.0.0-beta.1
     chart: cert-manager
   project: cloudclass
   syncPolicy:
