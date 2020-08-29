@@ -5,7 +5,8 @@ metadata:
   namespace: cloudclass-networking
 spec:
   destination:
-    name: ""
+    name: cert-manager
+    namespace: cloudclass-networking
     server: "https://kubernetes.default.svc"
   source:
     path: ""
