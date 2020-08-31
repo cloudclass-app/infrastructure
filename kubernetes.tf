@@ -2,7 +2,7 @@ resource "digitalocean_kubernetes_cluster" "cloudclass-kubernetes" {
   name = "cloudclass-kubernetes"
   region = "ams3"
   version = "1.18.6-do.0"
-  auto_updgrade = true
+  auto_upgrade = true
 
   node_pool {
     name = "cloudclass-kubernetes-pool-main"
