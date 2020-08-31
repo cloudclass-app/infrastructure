@@ -5,7 +5,7 @@ metadata:
   namespace: argocd
 spec:
   destination:
-    namespace: cloudclass-networking
+    namespace: cert-manager
     server: "https://kubernetes.default.svc"
   source:
     path: ""
