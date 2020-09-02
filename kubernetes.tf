@@ -1,15 +1,15 @@
 resource "digitalocean_kubernetes_cluster" "cloudclass-kubernetes" {
   name = "cloudclass-kubernetes"
   region = "ams3"
-  version = "1.18.6-do.0"
+  version = "1.18.8-do.0"
   auto_upgrade = true
+  surge_upgrade = false
+  tags = []
 
   node_pool {
     name = "cloudclass-kubernetes-pool-main"
-    size = "s-1vcpu-2gb"
-    auto_scale = true
-    min_nodes = 1
-    max_nodes = 2
+    size = "s-2vcpu-4gb"
+    node_count = 3
   }
 }
 
