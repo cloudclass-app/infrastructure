@@ -2,6 +2,7 @@ apiVersion: networking.k8s.io/v1beta1
 kind: Ingress
 metadata:
   name: cloudclass-services-evaluation-ingress
+  namespace: cloudclass-services-evaluation
   annotations:
     kubernetes.io/ingress.class: "nginx"
     cert-manager.io/cluster-issuer: "letsencrypt-prod"
@@ -18,10 +19,11 @@ apiVersion: v1
 kind: Service
 metadata:
   name: cloudclass-services-evaluation-service
+  namespace: cloudclass-services-evaluation
 spec:
   ports:
-  - port: 80
-    targetPort: 3000
+    - port: 80
+      targetPort: 3000
   selector:
     app: cloudclass-services-evaluation
 ---
@@ -29,6 +31,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: cloudclass-services-evaluation-deployment
+  namespace: cloudclass-services-evaluation
 spec:
   replicas: 3
   selector:
@@ -40,7 +43,7 @@ spec:
         app: cloudclass-services-evaluation
     spec:
       containers:
-      - name: hello-kubernetes
-        image: cloudclass/evaluation-service:latest
-        ports:
-        - containerPort: 3000
+        - name: hello-kubernetes
+          image: cloudclass/evaluation-service:latest
+          ports:
+            - containerPort: 3000
