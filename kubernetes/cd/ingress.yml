@@ -5,10 +5,14 @@ metadata:
   namespace: argocd
   annotations:
     kubernetes.io/ingress.class: "nginx"
-    # cert-manager.io/cluster-issuer: "letsencrypt-prod"
+    cert-manager.io/cluster-issuer: "letsencrypt-prod"
     nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
     nginx.ingress.kubernetes.io/backend-protocol: "HTTP"
 spec:
+  tls:
+    - hosts:
+        - argocd.jochem.codes
+      secretName: argocd-ingress-tls
   rules:
     - host: argocd.jochem.codes
       http:
@@ -16,7 +20,3 @@ spec:
           - backend:
               serviceName: argocd-server
               servicePort: http
-  tls:
-    - hosts:
-        - argocd.jochem.codes
-      secretName: argocd-tls
